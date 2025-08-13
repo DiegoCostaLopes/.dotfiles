@@ -25,3 +25,8 @@ export GUROBI_HOME=/opt/gurobi1203/linux64
 export PATH="$PATH:/opt/gurobi1203/linux64/bin"
 export LD_LIBRARY_PATH=/opt/gurobi1203/linux64/lib
 export GRB_LICENSE_FILE=/opt/gurobi1203/linux64/gurobi.lic
+
+# hyprland
+#
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
