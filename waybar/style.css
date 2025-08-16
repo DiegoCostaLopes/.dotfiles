@@ -45,6 +45,7 @@ window#waybar {
 #battery.warning,
 #network,
 #language,
+#idle_inhibitor,
 #clock {
 	border: 2px solid #484848;
 	color: #fff4d2;

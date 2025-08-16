@@ -12,6 +12,7 @@
 
   "modules-center": [
     "clock",
+    "idle_inhibitor",
   ],
 
   "modules-right": [
@@ -20,6 +21,14 @@
 	"hyprland/language",
     "pulseaudio",
   ],
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
 
   "custom/rofi": {
     "format": "<span></span>",
