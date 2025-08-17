@@ -1,16 +1,16 @@
 return {
 	{ -- Autoformat
-		'stevearc/conform.nvim',
-		event = { 'BufWritePre' },
-		cmd = { 'ConformInfo' },
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
 		keys = {
 			{
-				'<leader>f',
+				"<leader>f",
 				function()
-					require('conform').format { async = true, lsp_format = 'fallback' }
+					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
-				mode = '',
-				desc = '[F]ormat buffer',
+				mode = "",
+				desc = "[F]ormat buffer",
 			},
 		},
 		opts = {
@@ -22,9 +22,9 @@ return {
 				local disable_filetypes = { c = true, cpp = true, tex = true }
 				local lsp_format_opt
 				if disable_filetypes[vim.bo[bufnr].filetype] then
-					lsp_format_opt = 'never'
+					lsp_format_opt = "never"
 				else
-					lsp_format_opt = 'fallback'
+					lsp_format_opt = "fallback"
 				end
 				return {
 					timeout_ms = 500,
@@ -32,9 +32,12 @@ return {
 				}
 			end,
 			formatters_by_ft = {
-				lua = { 'stylua' },
-				fortran = { 'findent', prepend_args = { '--indent', '4' } },
-				tex = { 'latexindent' }
+				lua = { "stylua" },
+				fortran = { "findent", prepend_args = { "--indent", "4" } },
+				tex = { "latexindent" },
+				json = { "prettier" },
+				jsonc = { "prettier" },
+
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -43,7 +46,10 @@ return {
 			},
 			formatters = {
 				findent = {
-					prepend_args = { '-i', '4' },
+					prepend_args = { "-i", "4" },
+				},
+				prettier = {
+					prepend_args = { "--tab-width", "4" },
 				},
 			},
 		},

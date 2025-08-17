@@ -1,124 +1,132 @@
 {
-  "layer": "top",
-  "height": 20,
-  "spacing": 5,
+    "layer": "top",
+    "height": 20,
+    "spacing": 5,
 
-  "modules-left": [
-    "custom/rofi",
-    "hyprland/workspaces",
-    "hyprland/window",
-    "tray"
-  ],
+    "modules-left": [
+        "custom/rofi",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "tray",
+    ],
 
-  "modules-center": [
-    "clock",
-    "idle_inhibitor",
-  ],
+    "modules-center": ["clock", "idle_inhibitor"],
 
-  "modules-right": [
-    "cpu",
-    "memory",
-	"hyprland/language",
-    "pulseaudio",
-  ],
+    "modules-right": [
+        "custom/pacman",
+        "cpu",
+        "memory",
+        "hyprland/language",
+        "pulseaudio",
+    ],
 
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
-            "deactivated": ""
-        }
+            "deactivated": "",
+        },
     },
 
-  "custom/rofi": {
-    "format": "<span></span>",
-    "on-click": "rofi -show drun -disable-history -show-icons",
-    // "on-click-right": "~/.config/custom_scripts/power.sh",
-    "escape": true,
-    "tooltip": false
-  },
-
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "active-only": false,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": "{name}",
-  },
-
-  "hyprland/window": {
-    "format": "<span color='#f6c657' > 󰣆 </span>{class}",
-    "separate-outputs": true,
-    "icon": false,
-    "tooltip": false
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 8
-  },
-
-  "disk": {
-    "format": "<span color='#ea6962' >  </span>{free}",
-    "interval": 20
-  },
-
-  "cpu": {
-    "format": "<span color='#e78a4e' >  </span>{usage}%",
-    "tooltip": true,
-    "interval": 1
-  },
-  //
-  // "custom/cpu_temp": {
-  //   "exec": "~/.config/waybar/scripts/waybarTemp.sh",
-  //   "return-type": "json",
-  //   "interval": 2,
-  //   "format": "{}",
-  //   "tooltip": false
-  // },
-
-
-  "memory": {
-    "format": "<span color='#458588' >  </span>{}%"
-  },
-
-	"hyprland/language": {
-    	"format": "  {}",
-		"format-en": "US",
-		"format-en-intl": "US-intl",
-		"on-click": "hyprctl switchxkblayout current next",
+    "custom/pacman": {
+        "format": "{icon}{0}",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": " ",
+            "updated": "",
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates",
+        "on-click": "~/.scripts/update.sh",
     },
 
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "<span color='#83a598' >  </span>{volume}%",
-    "format-muted": "<span color='#ea6962' >  </span>{volume}%",
-    "format-bluetooth": "<span color='#83a598' > 󰂰 </span>{volume}%",
-    "format-bluetooth-muted": "<span color='#ea6962' > 󰂲 </span>{volume}%",
-    "format-source": "{volume}% ",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "tooltip": false,
-    "max-volume": 130
-  },
-
-
-  "network": {
-    "interval": 2,
-    "format": "<span color='#d3869b'> 󱘖 </span>{bandwidthDownBits}",
-    "format-wifi": "<span color='#d3869b'> {icon} </span>{bandwidthDownBits}",
-    "format-ethernet": "<span color='#d3869b'> 󰈀 </span>{bandwidthDownBits}",
-    "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "tooltip": false,
-    "states": {
-      "normal": 25,
+    "custom/rofi": {
+        "format": "<span></span>",
+        "on-click": "rofi -show drun -disable-history -show-icons",
+        // "on-click-right": "~/.config/custom_scripts/power.sh",
+        "escape": true,
+        "tooltip": false,
     },
-  },
 
-  "clock": {
-    // "timezone": "America/New_York",
-    "format": "<span color='#8ec07c' >  </span>{:%a %d | %H:%M}",
-    "tooltip": false,
-    "interval": 1
-  }
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "active-only": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+    },
+
+    "hyprland/window": {
+        "format": "<span color='#f6c657' > 󰣆 </span>{class}",
+        "separate-outputs": true,
+        "icon": false,
+        "tooltip": false,
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+    },
+
+    "disk": {
+        "format": "<span color='#ea6962' >  </span>{free}",
+        "interval": 20,
+    },
+
+    "cpu": {
+        "format": "<span color='#e78a4e' >  </span>{usage}%",
+        "tooltip": true,
+        "interval": 1,
+    },
+    //
+    // "custom/cpu_temp": {
+    //   "exec": "~/.config/waybar/scripts/waybarTemp.sh",
+    //   "return-type": "json",
+    //   "interval": 2,
+    //   "format": "{}",
+    //   "tooltip": false
+    // },
+
+    "memory": {
+        "format": "<span color='#458588' >  </span>{}%",
+    },
+
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "US",
+        "format-en-intl": "US-intl",
+        "on-click": "hyprctl switchxkblayout current next",
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "<span color='#83a598' >  </span>{volume}%",
+        "format-muted": "<span color='#ea6962' >  </span>{volume}%",
+        "format-bluetooth": "<span color='#83a598' > 󰂰 </span>{volume}%",
+        "format-bluetooth-muted": "<span color='#ea6962' > 󰂲 </span>{volume}%",
+        "format-source": "{volume}% ",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip": false,
+        "max-volume": 130,
+    },
+
+    "network": {
+        "interval": 2,
+        "format": "<span color='#d3869b'> 󱘖 </span>{bandwidthDownBits}",
+        "format-wifi": "<span color='#d3869b'> {icon} </span>{bandwidthDownBits}",
+        "format-ethernet": "<span color='#d3869b'> 󰈀 </span>{bandwidthDownBits}",
+        "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip": false,
+        "states": {
+            "normal": 25,
+        },
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "<span color='#8ec07c' >  </span>{:%a %d | %H:%M}",
+        "tooltip": false,
+        "interval": 1,
+    },
 }
