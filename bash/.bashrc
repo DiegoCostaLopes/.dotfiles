@@ -18,6 +18,8 @@ eval "$(starship init bash)"
 # fzf setup
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='-m --height 40% --layout reverse --border --style full'
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Created by `pipx` on 2025-08-09 18:24:17
 export PATH="$PATH:/home/diego/.local/bin"
@@ -34,4 +36,4 @@ export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_DESKTOP=Hyprland
 
 # Defaults
-EDITOR='nvim'
+export EDITOR='nvim'

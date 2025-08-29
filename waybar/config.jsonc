@@ -126,7 +126,8 @@
     "clock": {
         // "timezone": "America/New_York",
         "format": "<span color='#8ec07c' >  </span>{:%a %d | %H:%M}",
-        "tooltip": false,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": true,
         "interval": 1,
     },
 }
