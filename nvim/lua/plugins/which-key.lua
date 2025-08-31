@@ -52,7 +52,7 @@ return { -- Useful plugin to show you pending keybinds.
             { "<leader>r", group = "[R]ename" },
             { "<leader>s", group = "[S]earch" },
             { "<leader>f", group = "[F]ind" },
-            { "<leader>g", group = "[G]o to" },
+            { "<leader>l", group = "LSP" },
             { "<leader>w", group = "[W]orkspace" },
             { "<leader>t", group = "[T]oggle" },
             { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
@@ -61,7 +61,5 @@ return { -- Useful plugin to show you pending keybinds.
 
     config = function(_, opts)
         require("which-key").setup(opts)
-        vim.api.nvim_set_hl(0, "WhichKeyNormal", { link = "Normal" })
-        vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "Normal" })
     end,
 }
