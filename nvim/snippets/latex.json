@@ -1,0 +1,13 @@
+{
+    "figure": {
+        "prefix": "figure",
+        "body": [
+            "\\begin{figure}",
+            "\t \\caption{${1}}",
+            "\t \\label{${2}}",
+            "\t \\includegraphics[width=\\textwidth]{${3}}",
+            "\t \\legend{${4}}",
+            "\\end{figure}"
+        ]
+    }
+}

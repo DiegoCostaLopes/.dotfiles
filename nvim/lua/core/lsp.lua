@@ -1,14 +1,15 @@
 vim.lsp.enable({
     "lua_ls",
     "fortls",
-    "pyright",
+    "basedpyright",
     "texlab",
     "marksman",
+    "rust_analyzer",
 })
 
 vim.diagnostic.config({
-    virtual_lines = true,
-    -- virtual_text = true,
+    virtual_lines = false,
+    virtual_text = false,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
@@ -29,6 +30,35 @@ vim.diagnostic.config({
         },
     },
 })
+
+local group = vim.api.nvim_create_augroup("OoO", {})
+
+local function au(typ, pattern, cmdOrFn)
+    if type(cmdOrFn) == "function" then
+        vim.api.nvim_create_autocmd(typ, { pattern = pattern, callback = cmdOrFn, group = group })
+    else
+        vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
+    end
+end
+
+au({ "CursorHold", "InsertLeave" }, nil, function()
+    local opts = {
+        focusable = false,
+        scope = "cursor",
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+    }
+    vim.diagnostic.open_float(nil, opts)
+end)
+
+-- au('InsertEnter', nil, function()
+-- 	vim.diagnostic.enable(false)
+-- end)
+--
+-- au('InsertLeave', nil, function()
+-- 	vim.diagnostic.enable(true)
+-- end)
+--
+--
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),

@@ -23,6 +23,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Created by `pipx` on 2025-08-09 18:24:17
 export PATH="$PATH:/home/diego/.local/bin"
+export PATH="$PATH:/home/diego/.cargo/bin"
 
 # gurobi setup
 export GUROBI_HOME=/opt/gurobi1203/linux64

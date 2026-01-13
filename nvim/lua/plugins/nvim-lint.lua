@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
-    event = { "BufWritePost", "InsertLeave" },
+    event = { "BufWritePost", "InsertLeave", "BufEnter" },
     config = function()
         local lint = require("lint")
         local gfortran_diagnostic_args = { "-Wall", "-Wextra", "-fmax-errors=5" }

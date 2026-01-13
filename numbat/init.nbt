@@ -1,0 +1,3 @@
+dimension MoleFlow = AmountOfSubstance / Time
+
+dimension Diffusivity = Length^2 / Time

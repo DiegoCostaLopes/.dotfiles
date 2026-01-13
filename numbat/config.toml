@@ -1,0 +1,8 @@
+intro-banner = "long"
+prompt = ">>> "
+pretty-print = "auto"
+color = "auto"
+edit-mode = "emacs"
+
+[exchange-rates]
+fetching-policy = "on-startup"

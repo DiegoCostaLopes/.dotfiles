@@ -8,6 +8,16 @@ return {
     opts = {},
     config = function()
         local fzf = require("fzf-lua")
+
+        fzf.setup({
+            actions = {
+                files = {
+                    ["enter"] = fzf.actions.file_edit,
+                },
+            },
+        })
+
+        fzf.register_ui_select()
         vim.keymap.set("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
         vim.keymap.set("n", "<leader>fg", fzf.global, { desc = "[F]ind [G]lobal" })
         vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[F]ind [F]iles" })
