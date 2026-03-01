@@ -49,7 +49,7 @@ return {
                     prepend_args = { "-i", "4" },
                 },
                 prettier = {
-                    prepend_args = { "--tab-width", "4" },
+                    prepend_args = { "--tab-width", "4", "--trailing-comma", "none" },
                 },
                 latexindent = {
                     prepend_args = { "-l" },

@@ -8,7 +8,7 @@ require("core.lazy")
 require("core.lsp")
 
 -- apply colorscheme and correct some highlight groups
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_hl(0, "WhichKeyNormal", { link = "Normal" })
 vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "Normal" })
 

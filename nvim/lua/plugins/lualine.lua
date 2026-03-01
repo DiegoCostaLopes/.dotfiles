@@ -1,16 +1,16 @@
 return {
-	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- config = function()
-	-- 	require("lualine").setup({
-	-- 		options = {
-	-- 			theme = "nord",
-	-- 		},
-	-- 	})
-	-- end,
-	opts = {
-		options = {
-			theme = "gruvbox-material",
-		},
-	},
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- config = function()
+    -- 	require("lualine").setup({
+    -- 		options = {
+    -- 			theme = "nord",
+    -- 		},
+    -- 	})
+    -- end,
+    opts = {
+        options = {
+            theme = "catppuccin",
+        },
+    },
 }

@@ -1,128 +1,279 @@
 /**
  * ROFI Color theme
 */
+// configuration {
+//     font: "JetBrainsMono Nerd Font 12";
+// }
 
 * {
-    dark:#0f0f0f;
-    red:#ea6962;
-    red-alt:#ca3433;
-    orange:#e78a4e;
-    yellow: #d8a657;
-    blue:#7daea3;
-    green:#a9a665;
-    aqua: #89b482;
-    cream:#d4be98;
-    grey:#504945;
-    dark-grey:#202020;
-    transparent:#00000000;
-    highlight:underline bold #ca3433;
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
 
-    padding:0;
-    margin:0;
-    border:0;
-    border-radius:0;
-    spacing:0;
-    vertical-align: 0.5;
+    text:      #cdd6f4;
+    subtext0:  #a6adc8;
 
-    text-color: @cream;
-    border-color:@yellow;
-    background-color:@transparent;
+    surface0:  #313244;
+    surface1:  #45475a;
+    surface2:  #585b70;
 
-    font:"JetBrainsMono Nerd Font 10";
-}
+    blue:      #89b4fa;
+    green:     #a6e3a1;
+    red:       #f38ba8;
+    yellow:    #f9e2af;
+    mauve:     #cba6f7;
 
-configuration {
-    display-drun: " Apps ";
-    display-run: " Cmd: ";
-    display-window: " Win : ";
+    selected-bg: #89b4fa;
+    selected-fg: #11111b;
 }
 
 window {
-    width: 25%;
-    location: center;
-    background-color: @dark-grey;
-    orientation: horizontal;
+    background-color: @base;
+    border: 2px;
+    border-radius: 5px;
+    border-color: @blue;
+    padding: 12px;
+    width: 28%;
 }
 
 mainbox {
-    children: [inputbar, message,listview];
+    background-color: @base;
+    spacing: 8px;
 }
 
 inputbar {
-    margin: 8px 8px 3px 8px;
-    background-color: @yellow;
-    children: [prompt,entry];
+    background-color: @base;
+    border-radius: 5px;
+    padding: 4px 8px;
+    spacing: 6px;
 }
 
 prompt {
-    padding: 5px;
-    margin: 2px;
-    background-color: @dark-grey;
-    text-color: @aqua;
-    font:"JetBrainsMono Nerd Font Bold 13";
+    background-color: @green;
+    text-color: @crust;
+    border-radius: 3px;
+    padding: 8px 12px;
+    vertical-align: 0.5;
 }
 
 entry {
-    padding:5px;
-    margin:2px;
-    border-color:@grey;
-    background-color:@dark-grey;
-    text-color:@red;
-    font:"JetBrainsMono Nerd Font Bold 13";
+    background-color: transparent;
+    padding: 10px;
+    text-color: @subtext0;
+    placeholder: "Select device";
+    vertical-align: 0.5;
+}
+
+case-indicator {
+    background-color: transparent;
+    text-color: @subtext0;
+    padding: 0;
 }
 
 listview {
-    lines:10;
-    padding:8px;
-    border: 2px;
-    margin:8px;
-    background-color:@dark-grey;
-    children:[element];
+    background-color: @base;
+    padding: 6px 0 0 0;
+    spacing: 3px;
 }
+
+textbox, message {
+    background-color: @base;
+    text-color: @text;
+}
+
 element {
-    padding:2px;
+    background-color: @base;
+    text-color: @text;
+    padding: 3px 8px;
+    border-radius: 3px;
 }
 
-element-text {
-    size:1em;
-    padding:4px;
-    margin:0px;
-    text-color:inherit;
-}
-
-element-icon{
-    padding:4px;
-    margin:1px;
-    size:1em;
+element-text, element-icon {
+    background-color: transparent;
+    text-color: inherit;
 }
 
 element selected {
-    background-color: @yellow;
-    text-color: @dark;
+    background-color: @text;
+    text-color: @selected-fg;
 }
 
-element selected active {
-    background-color: @red-alt;
-}
+// configuration {
+//     font: "JetBrainsMono Nerd Font 12";
+//     display-drun: " Apps ";
+//     display-run: " Cmd: ";
+//     display-window: " Win : ";
+// }
+configuration {
+	/*---------- General setting ----------*/
+	modi: "drun,run,filebrowser,window";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
+	show-icons: true;
+	icon-theme: "MacTahoe-dark";
+/*	cache-dir: ;*/
+	steal-focus: false;
+/*	dpi: -1;*/
 
-message {
-    expand:true;
-    background-color: @dark-grey;
-    children: [textbox];
-}
+	/*---------- Matching setting ----------*/
+	matching: "normal";
+	tokenize: true;
 
+	/*---------- SSH settings ----------*/
+	ssh-client: "ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+	parse-hosts: true;
+	parse-known-hosts: true;
 
-textbox {
-    expand: true;
-    padding:3px;
-    background-color:@red-alt;
-    text-color:@dark-grey;
-}
+	/*---------- Drun settings ----------*/
+	drun-categories: "";
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun {
+		/** Parse user desktop files. */
+		parse-user:   true;
+		/** Parse system desktop files. */
+		parse-system: true;
+    }
 
-error-message {
-    expand: true;
-    border: 2px;
-    padding:5px;
-    background-color: @dark-grey;
-    text-color:@dark;
+	/*---------- Run settings ----------*/
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} -e {cmd}";
+
+	/*---------- Fallback Icon ----------*/
+	run,drun {
+		fallback-icon: "application-x-addon";
+	}
+
+	/*---------- Window switcher settings ----------*/
+	window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: false;
+
+	/*---------- Combi settings ----------*/
+/*	combi-modi: "window,run";*/
+/*	combi-hide-mode-prefix: false;*/
+/*	combi-display-format: "{mode} {text}";*/
+
+	/*---------- History and Sorting ----------*/
+	disable-history: true;
+	sorting-method: "normal";
+	max-history-size: 25;
+
+	/*---------- Display setting ----------*/
+	display-window: "Windows";
+	display-windowcd: "Window CD";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Apps";
+	display-combi: "Combi";
+	display-keys: "Keys";
+	display-filebrowser: "Files";
+
+	/*---------- Misc setting ----------*/
+	terminal: "rofi-sensible-terminal";
+	font: "JetBrainsMono Nerd Font 16";
+	sort: false;
+	threads: 0;
+	click-to-exit: true;
+/*	ignored-prefixes: "";*/
+/*	pid: "/run/user/1000/rofi.pid";*/
+
+	/*---------- File browser settings ----------*/
+    filebrowser {
+/*	  directory: "/home";*/
+      directories-first: true;
+      sorting-method:    "name";
+    }
+
+	/*---------- Other settings ----------*/
+    timeout {
+      action: "kb-cancel";
+      delay:  0;
+    }
+
+	/*---------- Keybindings ----------*/
+/*
+	kb-primary-paste: "Control+V,Shift+Insert";
+	kb-secondary-paste: "Control+v,Insert";
+	kb-clear-line: "Control+w";
+	kb-move-front: "Control+a";
+	kb-move-end: "Control+e";
+	kb-move-word-back: "Alt+b,Control+Left";
+	kb-move-word-forward: "Alt+f,Control+Right";
+	kb-move-char-back: "Left,Control+b";
+	kb-move-char-forward: "Right,Control+f";
+	kb-remove-word-back: "Control+Alt+h,Control+BackSpace";
+	kb-remove-word-forward: "Control+Alt+d";
+	kb-remove-char-forward: "Delete,Control+d";
+	kb-remove-char-back: "BackSpace,Shift+BackSpace,Control+h";
+	kb-remove-to-eol: "Control+k";
+	kb-remove-to-sol: "Control+u";
+	kb-accept-entry: "Control+j,Control+m,Return,KP_Enter";
+	kb-accept-custom: "Control+Return";
+	kb-accept-custom-alt: "Control+Shift+Return";
+	kb-accept-alt: "Shift+Return";
+	kb-delete-entry: "Shift+Delete";
+	kb-mode-next: "Shift+Right,Control+Tab";
+	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
+	kb-mode-complete: "Control+l";
+	kb-row-left: "Control+Page_Up";
+	kb-row-right: "Control+Page_Down";
+	kb-row-down: "Down,Control+n";
+	kb-page-prev: "Page_Up";
+	kb-page-next: "Page_Down";
+	kb-row-first: "Home,KP_Home";
+	kb-row-last: "End,KP_End";
+	kb-row-select: "Control+space";
+	kb-screenshot: "Alt+S";
+	kb-ellipsize: "Alt+period";
+	kb-toggle-case-sensitivity: "grave,dead_grave";
+	kb-toggle-sort: "Alt+grave";
+	kb-cancel: "Escape,Control+g,Control+bracketleft";
+	kb-custom-1: "Alt+1";
+	kb-custom-2: "Alt+2";
+	kb-custom-3: "Alt+3";
+	kb-custom-4: "Alt+4";
+	kb-custom-5: "Alt+5";
+	kb-custom-6: "Alt+6";
+	kb-custom-7: "Alt+7";
+	kb-custom-8: "Alt+8";
+	kb-custom-9: "Alt+9";
+	kb-custom-10: "Alt+0";
+	kb-custom-11: "Alt+exclam";
+	kb-custom-12: "Alt+at";
+	kb-custom-13: "Alt+numbersign";
+	kb-custom-14: "Alt+dollar";
+	kb-custom-15: "Alt+percent";
+	kb-custom-16: "Alt+dead_circumflex";
+	kb-custom-17: "Alt+ampersand";
+	kb-custom-18: "Alt+asterisk";
+	kb-custom-19: "Alt+parenleft";
+	kb-select-1: "Super+1";
+	kb-select-2: "Super+2";
+	kb-select-3: "Super+3";
+	kb-select-4: "Super+4";
+	kb-select-5: "Super+5";
+	kb-select-6: "Super+6";
+	kb-select-7: "Super+7";
+	kb-select-8: "Super+8";
+	kb-select-9: "Super+9";
+	kb-select-10: "Super+0";
+	ml-row-left: "ScrollLeft";
+	ml-row-right: "ScrollRight";
+	ml-row-up: "ScrollUp";
+	ml-row-down: "ScrollDown";
+	me-select-entry: "MousePrimary";
+	me-accept-entry: "MouseDPrimary";
+	me-accept-custom: "Control+MouseDPrimary";
+*/
 }

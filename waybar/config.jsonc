@@ -1,126 +1,107 @@
 {
     "layer": "top",
-    "height": 20,
-    "spacing": 5,
+    "position": "top",
+    "spacing": 0,
+    "height": 35,
 
-    "modules-left": [
-        "custom/rofi",
-        "hyprland/workspaces",
-        "hyprland/window",
-        "tray",
-    ],
-
+    "modules-left": ["custom/logo", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock", "idle_inhibitor"],
-
     "modules-right": [
-        "custom/pacman",
-        "cpu",
+        "tray",
         "memory",
+        "temperature",
+        "temperature#gpu",
         "hyprland/language",
-        "pulseaudio",
+        "wireplumber"
     ],
 
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": "",
-        },
+            "activated": " ",
+            "deactivated": " "
+        }
     },
 
-    "custom/pacman": {
-        "format": "{icon}{0}",
-        "return-type": "json",
-        "format-icons": {
-            "pending-updates": " ",
-            "updated": "",
-        },
-        "exec-if": "which waybar-updates",
-        "exec": "waybar-updates",
-        "on-click": "~/.scripts/update.sh",
-    },
-
-    "custom/rofi": {
-        "format": "<span></span>",
+    "custom/logo": {
+        "format": "  ",
         "on-click": "rofi -show drun -disable-history -show-icons",
-        // "on-click-right": "~/.config/custom_scripts/power.sh",
         "escape": true,
-        "tooltip": false,
+        "tooltip": false
     },
 
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "active-only": false,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9"
+        }
     },
 
     "hyprland/window": {
-        "format": "<span color='#f6c657' > 󰣆 </span>{class}",
+        "format": "󰣆 {class}",
         "separate-outputs": true,
         "icon": false,
-        "tooltip": false,
+        "tooltip": false
     },
 
     "tray": {
         "icon-size": 16,
-        "spacing": 8,
-    },
-
-    "disk": {
-        "format": "<span color='#ea6962' >  </span>{free}",
-        "interval": 20,
+        "spacing": 10
     },
 
     "cpu": {
-        "format": "<span color='#e78a4e' >  </span>{usage}%",
+        "format": " {usage}%",
         "tooltip": true,
-        "interval": 1,
+        "interval": 1
     },
-    //
-    // "custom/cpu_temp": {
-    //   "exec": "~/.config/waybar/scripts/waybarTemp.sh",
-    //   "return-type": "json",
-    //   "interval": 2,
-    //   "format": "{}",
-    //   "tooltip": false
-    // },
+
+    "temperature": {
+        "format": " {temperatureC}°C",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input"
+    },
+    "temperature#gpu": {
+        "format": "󰍹 {temperatureC}°C",
+        // "format": "💻 {temperatureC}°C",
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input"
+    },
 
     "memory": {
-        "format": "<span color='#458588' >  </span>{}%",
+        "interval": 5,
+        "format": "󰍛 {}%",
+        "max-length": 6,
+        "on-click": "foot --title btop -e btop"
     },
 
     "hyprland/language": {
-        "format": "  {}",
+        "format": " {}",
         "format-en": "US",
         "format-en-intl": "US-intl",
-        "on-click": "hyprctl switchxkblayout current next",
+        "on-click": "hyprctl switchxkblayout current next"
     },
 
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "<span color='#83a598' >  </span>{volume}%",
-        "format-muted": "<span color='#ea6962' >  </span>{volume}%",
-        "format-bluetooth": "<span color='#83a598' > 󰂰 </span>{volume}%",
-        "format-bluetooth-muted": "<span color='#ea6962' > 󰂲 </span>{volume}%",
-        "format-source": "{volume}% ",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol",
-        "tooltip": false,
-        "max-volume": 130,
-    },
-
-    "network": {
-        "interval": 2,
-        "format": "<span color='#d3869b'> 󱘖 </span>{bandwidthDownBits}",
-        "format-wifi": "<span color='#d3869b'> {icon} </span>{bandwidthDownBits}",
-        "format-ethernet": "<span color='#d3869b'> 󰈀 </span>{bandwidthDownBits}",
-        "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "tooltip": false,
-        "states": {
-            "normal": 25,
+    "wireplumber": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀", "󰕾", ""]
         },
+        "tooltip-format": "Volume : {volume}%",
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol",
+        "scroll-step": 1,
+        "nospacing": 1
     },
 
     "clock": {
@@ -128,6 +109,6 @@
         "format": "<span color='#8ec07c' >  </span>{:%a %d | %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true,
-        "interval": 1,
-    },
+        "interval": 1
+    }
 }
