@@ -1,0 +1,8 @@
+[2026-03-01 14:00:22.188] [info] Using configuration file /home/diego/.config/waybar/config.jsonc
+[2026-03-01 14:00:22.189] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-01 14:00:22.189] [info] Using CSS file /home/diego/.config/waybar/style.css
+[2026-03-01 14:00:22.192] [info] Hyprland IPC starting
+[2026-03-01 14:00:22.193] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-03-01 14:00:22.223] [info] Bar configured (width: 2560, height: 35) for output: DP-1
+warn: wayland.c:1794: compositor does not implement the XDG toplevel icon protocol
+warn: terminal.c:2029: slave exited with signal 1 (Hangup)

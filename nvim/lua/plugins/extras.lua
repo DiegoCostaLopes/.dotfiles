@@ -14,10 +14,10 @@ return { -- Collection of various small independent plugins/modules
                 skip_unbalanced = true,
                 -- MiniPairs.map("i", "<", { action = "open", pair = "<>", register = { cr = false } }),
                 -- Insert `<>` pair if `<` is typed at line start, don't register for <CR>
-                mappings = {
-                    ["<"] = { action = "open", pair = "<>", neigh_pattern = "[^\\]." },
-                    [">"] = { action = "close", pair = "<>", neigh_pattern = "[^\\]." },
-                },
+                -- mappings = {
+                --     ["<"] = { action = "open", pair = "<>", neigh_pattern = "[^\\]." },
+                --     [">"] = { action = "close", pair = "<>", neigh_pattern = "[^\\]." },
+                -- },
             })
 
             -- Add/delete/replace surroundings (brackets, quotes, etc.)

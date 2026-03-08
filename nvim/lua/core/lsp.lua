@@ -5,6 +5,7 @@ vim.lsp.enable({
     "texlab",
     "marksman",
     "rust_analyzer",
+    "tinymist",
 })
 
 vim.diagnostic.config({
