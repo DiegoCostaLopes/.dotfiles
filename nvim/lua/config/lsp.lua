@@ -1,7 +1,7 @@
 vim.lsp.enable({
     "lua_ls",
     "fortls",
-    "basedpyright",
+    "ty",
     "texlab",
     "marksman",
     "rust_analyzer",
