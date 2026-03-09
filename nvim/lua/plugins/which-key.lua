@@ -1,8 +1,7 @@
-return { -- Useful plugin to show you pending keybinds.
-    "folke/which-key.nvim",
-    event = "VimEnter", -- Sets the loading event to 'VimEnter'
+vim.pack.add({ "https://github.com/folke/which-key.nvim"})
 
-    opts = {
+require("which-key").setup({
+
         -- delay between pressing a key and opening which-key (milliseconds)
         -- this setting is independent of vim.opt.timeoutlen
         delay = 0,
@@ -57,9 +56,4 @@ return { -- Useful plugin to show you pending keybinds.
             { "<leader>t", group = "[T]oggle" },
             { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
         },
-    },
-
-    config = function(_, opts)
-        require("which-key").setup(opts)
-    end,
-}
+})

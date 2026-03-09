@@ -18,7 +18,7 @@ local function client_with_fn(fn)
 end
 
 local function buf_build(client, bufnr)
-    local win = vim.api.nvim_get_current_win()
+local win = vim.api.nvim_get_current_win()
     local params = vim.lsp.util.make_position_params(win, client.offset_encoding)
     client.request("textDocument/build", params, function(err, result)
         if err then
