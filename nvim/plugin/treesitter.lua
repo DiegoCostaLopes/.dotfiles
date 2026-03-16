@@ -2,6 +2,15 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
+vim.api.nvim_create_autocmd("PackChanged", {
+    callback = function(event)
+        local name, kind = event.data.spec.name, event.data.kind
+        if name == "nvim-treesitter" and kind == "update" then
+            vim.cmd("TSUpdate")
+        end
+    end,
+})
+
 local treesitter = require("nvim-treesitter")
 
 treesitter.setup({ -- Highlight, edit, and navigate code
@@ -22,22 +31,21 @@ treesitter.setup({ -- Highlight, edit, and navigate code
     -- --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 })
 
-local ensure_installed =
-    {
-        "bash",
-        "c",
-        "diff",
-        "html",
-        "lua",
-        "luadoc",
-        "markdown",
-        "markdown_inline",
-        "query",
-        "vim",
-        "vimdoc",
-        "python",
-        "rust",
-        "fortran",
-    }
+local ensure_installed = {
+    "bash",
+    "c",
+    "diff",
+    "html",
+    "lua",
+    "luadoc",
+    "markdown",
+    "markdown_inline",
+    "query",
+    "vim",
+    "vimdoc",
+    "python",
+    "rust",
+    "fortran",
+}
 
 treesitter.install(ensure_installed)

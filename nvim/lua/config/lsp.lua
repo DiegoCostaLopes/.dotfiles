@@ -6,6 +6,7 @@ vim.lsp.enable({
     "marksman",
     "rust_analyzer",
     "tinymist",
+    "bashls",
 })
 
 vim.diagnostic.config({

@@ -1,7 +1,7 @@
-
 vim.pack.add({
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-mini/mini.nvim",
+    "https://github.com/kylechui/nvim-surround",
 })
 
 require("mini.ai").setup({ n_lines = 500 })
@@ -20,10 +20,12 @@ require("mini.pairs").setup({
 --  - va)  - [V]isually select [A]round [)]paren
 --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
 --  - ci'  - [C]hange [I]nside [']quote
-require("mini.surround").setup()
+-- require("mini.surround").setup()
 
 MiniPairs = require("mini.pairs")
 local map_tex = function()
     MiniPairs.map_buf(0, "i", "$", { action = "closeopen", pair = "$$" })
 end
 vim.api.nvim_create_autocmd("FileType", { pattern = "tex", callback = map_tex })
+
+require("nvim-surround").setup()

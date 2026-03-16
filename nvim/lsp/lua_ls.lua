@@ -64,6 +64,7 @@ return {
             workspace = {
                 library = {
                     vim.env.VIMRUNTIME,
+
                     -- optionally add other plugins' lua directories if needed for type definitions
                 },
             },
