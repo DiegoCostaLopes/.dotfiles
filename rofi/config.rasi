@@ -60,7 +60,7 @@ entry {
     background-color: transparent;
     padding: 10px;
     text-color: @subtext0;
-    placeholder: "Select device";
+    placeholder: "";
     vertical-align: 0.5;
 }
 
@@ -174,7 +174,7 @@ configuration {
 	display-windowcd: "Window CD";
 	display-run: "Run";
 	display-ssh: "SSH";
-	display-drun: "Apps";
+	display-drun: "drun";
 	display-combi: "Combi";
 	display-keys: "Keys";
 	display-filebrowser: "Files";

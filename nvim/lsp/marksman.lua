@@ -13,4 +13,7 @@ return {
     cmd = { "marksman", "server" },
     filetypes = { "markdown", "markdown.mdx" },
     root_markers = { ".marksman.toml", ".git" },
+    on_attach = function()
+        vim.opt_local.textwidth = 120
+    end,
 }

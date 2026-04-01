@@ -7,6 +7,7 @@ vim.lsp.enable({
     "rust_analyzer",
     "tinymist",
     "bashls",
+    "qmlls",
 })
 
 vim.diagnostic.config({

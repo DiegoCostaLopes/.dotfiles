@@ -1,24 +1,36 @@
+vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
-vim.pack.add({"https://github.com/stevearc/conform.nvim"})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--
+--     pattern = "*",
+--     callback = function(args)
+--     end,
+-- })
+
+local function clear_whitespace()
+    local save_cursor = vim.fn.getpos(".")
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.setpos(".", save_cursor)
+end
 
 require("conform").setup({
     notify_on_error = false,
-    format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true, tex = true }
-        local lsp_format_opt
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-            lsp_format_opt = "never"
-        else
-            lsp_format_opt = "fallback"
-        end
-        return {
-            timeout_ms = 5000,
-            lsp_format = lsp_format_opt,
-        }
-    end,
+    -- format_on_save = function(bufnr)
+    --     -- Disable "format_on_save lsp_fallback" for languages that don't
+    --     -- have a well standardized coding style. You can add additional
+    --     -- languages here or re-enable it for the disabled ones.
+    --     local disable_filetypes = { c = true, cpp = true, tex = true }
+    --     local lsp_format_opt
+    --     if disable_filetypes[vim.bo[bufnr].filetype] then
+    --         lsp_format_opt = "never"
+    --     else
+    --         lsp_format_opt = "fallback"
+    --     end
+    --     return {
+    --         timeout_ms = 5000,
+    --         lsp_format = lsp_format_opt,
+    --     }
+    -- end,
     formatters_by_ft = {
         lua = { "stylua" },
         fortran = { "findent", prepend_args = { "--indent", "4" } },
@@ -47,11 +59,22 @@ require("conform").setup({
         },
     },
 
-    vim.keymap.set("n", "<leader>df",
-            function()
-                require("conform").format({ async = true, lsp_format = "fallback" })
-            end,
-    { desc = "[F]ormat buffer" })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function(args)
+            local disable_filetypes = { c = true, cpp = true, tex = true }
+            local lsp_format_opt
+            if disable_filetypes[vim.bo[args.buf].filetype] then
+                lsp_format_opt = "never"
+            else
+                lsp_format_opt = "fallback"
+            end
+            require("conform").format({ bufnr = args.buf, async = false, lsp_format = lsp_format_opt })
+            clear_whitespace()
+        end,
+    }),
 
+    vim.keymap.set("n", "<leader>df", function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
+        clear_whitespace()
+    end, { desc = "[F]ormat buffer" }),
 })
-

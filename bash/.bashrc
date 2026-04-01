@@ -21,6 +21,9 @@ export FZF_DEFAULT_OPTS='-m --height 40% --layout reverse --border --style full'
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# zoxide
+eval "$(zoxide init bash)"
+
 # Created by `pipx` on 2025-08-09 18:24:17
 export PATH="$PATH:/home/diego/.local/bin"
 export PATH="$PATH:/home/diego/.cargo/bin"
@@ -35,6 +38,9 @@ export GRB_LICENSE_FILE=/opt/gurobi1203/linux64/gurobi.lic
 #
 export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_DESKTOP=Hyprland
+
+# quickshell
+export PATH="$PATH:/usr/lib/qt6/bin/qmlls"
 
 # Defaults
 export EDITOR='nvim'

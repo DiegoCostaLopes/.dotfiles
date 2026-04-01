@@ -1,5 +1,5 @@
 vim.pack.add({
-    "https://github.com/ibhagwan/fzf-lua"
+    "https://github.com/ibhagwan/fzf-lua",
 })
 
 local fzf = require("fzf-lua")
@@ -8,6 +8,14 @@ fzf.setup({
     actions = {
         files = {
             ["enter"] = fzf.actions.file_edit,
+            ["ctrl-s"] = fzf.actions.file_split,
+            ["ctrl-v"] = fzf.actions.file_vsplit,
+            ["ctrl-t"] = fzf.actions.file_tabedit,
+            ["alt-q"] = fzf.actions.file_sel_to_qf,
+            ["alt-Q"] = fzf.actions.file_sel_to_ll,
+            ["alt-i"] = fzf.actions.toggle_ignore,
+            ["alt-h"] = fzf.actions.toggle_hidden,
+            ["alt-f"] = fzf.actions.toggle_follow,
         },
     },
 })
@@ -24,5 +32,3 @@ vim.keymap.set("n", "<leader>ft", fzf.tags, { desc = "Find tags" })
 vim.keymap.set("n", "<leader>fn", function()
     fzf.files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[F]ind [N]eovim Config Files" })
-
-
