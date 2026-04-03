@@ -60,7 +60,7 @@ entry {
     background-color: transparent;
     padding: 10px;
     text-color: @subtext0;
-    placeholder: "";
+    placeholder: "Search...";
     vertical-align: 0.5;
 }
 

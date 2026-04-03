@@ -44,3 +44,7 @@ export PATH="$PATH:/usr/lib/qt6/bin/qmlls"
 
 # Defaults
 export EDITOR='nvim'
+
+
+# filen-cli
+PATH=$PATH:~/.filen-cli/bin
