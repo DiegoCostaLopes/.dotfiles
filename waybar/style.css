@@ -1,21 +1,28 @@
 /* ────────── Waybar Styles ────────── */
 
- * {
+@import url("colors.css");
+
+* {
   border: none;
-  border-radius: 0;
   min-height: 0;
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 15px;
 }
 
 window#waybar {
-  background-color: #1e1e2e;
+  border-radius: 15px;
+  background-color: @window-background; /* #1e1e2e; */
   transition-property: background-color, opacity;
   transition-duration: 0.25s;
+  opacity: 0.5;
 }
 
 window#waybar.hidden {
-  opacity: 0.0;
+  opacity: 0.5;
+}
+
+.modules-right {
+    padding: 0 10px;
 }
 
 #workspaces {
