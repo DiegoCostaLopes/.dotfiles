@@ -1,0 +1,19 @@
+
+@define-color window-background #222222;
+@define-color wbutton-background #383838;
+@define-color wbutton-color #fff4d2;
+@define-color wbuttonactive-background #8ec07c;
+@define-color wbuttonactive-color #000000;
+@define-color wbuttonhover-background #d3869b;
+@define-color wbuttonhover-color #222222;
+@define-color wbuttonurgent-background #ea6962;
+@define-color wbuttonurgent-color #222222;
+
+@define-color module-background #383838;
+@define-color module-color #fff4d2;
+@define-color module-hover #000000;
+@define-color logo-color #83a598;
+@define-color temp-color #fff4d2;
+@define-color clock-color #fff4d2;
+@define-color tooltip-background #383838;
+@define-color tooltip-label #fff4d2;
