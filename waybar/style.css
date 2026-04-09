@@ -13,8 +13,7 @@ window#waybar {
   border-radius: 15px;
   background-color: @window-background; /* #1e1e2e; */
   transition-property: background-color, opacity;
-  transition-duration: 0.25s;
-}
+  transition-duration: 0.25s; }
 
 window#waybar.hidden {
   opacity: 0.5;
@@ -34,25 +33,25 @@ window#waybar.hidden {
   padding: 3px 9px;
   margin: 4px 4px;
   border-radius: 3px;
-  background-color: #313244;
-  color: #b4befe;
+  background-color: @wbutton-background;
+  color: @wbutton-color;
   font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
 #workspaces button.active {
-  background-color: #cba6f7;
-  color: #1e1e2e;
+  background-color: @wbuttonactive-background;
+  color: @wbuttonactive-color;
   font-weight: 600;
 }
 
 #workspaces button:hover {
-  background-color: #89b4fa;
-  color: #1e1e2e;
+  background-color: @wbuttonhover-background;
+  color: @wbuttonhover-color;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
-  color: #1e1e2e;
+  background-color: @wbuttonurgent-background;
+  color: @wbuttonurgent-color;
 }
 
 #bluetooth,
@@ -71,9 +70,9 @@ window#waybar.hidden {
 #tray {
   margin: 4px 4px;
   padding: 3px 10px;
-  background-color: #313244;
+  background-color: @module-background;
   border-radius: 3px;
-  color: #cdd6f4;
+  color: @module-color;
 }
 
 #bluetooth:hover,
@@ -86,7 +85,7 @@ window#waybar.hidden {
 #network:hover,
 #clock:hover,
 #tray:hover {
-  background-color: #45475a;
+  background-color: @module-hover;
 }
 
 #custom-logo {
@@ -95,75 +94,33 @@ window#waybar.hidden {
   font-size: 18px;
   border-radius: 0;
   background: transparent;
-  color: #89b4fa;
-}
-
-#bluetooth {
-  color: #74c7ec;
-}
-
-#bluetooth.connected {
-  color: #a6e3a1;
-}
-
-#bluetooth.off {
-  color: #585b70;
+  color: @logo-color;
 }
 
 #memory,
 #cpu,
 #temperature {
-  color: #fab387;
+  color: @temp-color;
   padding-right: 10px;
-}
-
-#battery {
-  color: #f38ba8;
-  padding-right: 10px;
-}
-
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-  color: #ff0000;
-}
-
-#battery.charging {
-  color: #a6e3a1;
-}
-
-#backlight {
-  color: #fab387;
 }
 
 #wireplumber {
-  color: #f9e2af;
-  padding-right: 14px;
-}
-
-#network {
-  color: #94e2d5;
   padding-right: 14px;
 }
 
 #clock {
   font-family: "JetBrainsMono Nerd Font", monospace;
-  color: #ddb6f2;
-}
-
-#custom-power {
-  color: #f2cdcd;
-  padding-right: 12px;
+  color: @clock-color;
 }
 
 tooltip {
   border-radius: 8px;
   padding: 10px;
-  background-color: #1e1e2e;
+  background-color: @tooltip-background;
 }
 
 tooltip label {
   padding: 2px 4px;
   background-color: transparent;
-  color: #cdd6f4;
+  color: @tooltip-label;
 }
