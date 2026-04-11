@@ -5,7 +5,7 @@ vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
 vim.pack.add({ "https://github.com/rebelot/kanagawa.nvim" })
 vim.pack.add({ "https://github.com/shaunsingh/nord.nvim" })
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("everforest")
 
 require("kanagawa").setup({
     colors = {

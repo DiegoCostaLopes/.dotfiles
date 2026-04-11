@@ -1,6 +1,7 @@
 
 include "%L"
 
+<dead_acute> <c> : "ç"   ccedilla # ´ + c → ç
 
 <Multi_key> <d> :       "∂"    U2202    # Derivative symbol
 <Multi_key> <D> :       "∇"    U2207    # Nabla symbol

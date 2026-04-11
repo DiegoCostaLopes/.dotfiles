@@ -47,6 +47,7 @@ local ensure_installed = {
     "rust",
     "fortran",
     "qmljs",
+    "latex",
 }
 
 treesitter.install(ensure_installed)

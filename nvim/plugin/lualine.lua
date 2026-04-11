@@ -3,7 +3,7 @@ vim.pack.add({
 })
 
 require("lualine").setup({
-    theme = "catppuccin",
+    theme = "everforest",
 })
 
 return {

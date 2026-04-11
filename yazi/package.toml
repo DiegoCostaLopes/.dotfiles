@@ -12,3 +12,13 @@ hash = "187cc58ba7ac3befd49c342129e6f1b6"
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "9511cb0"
 hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+
+[[flavor.deps]]
+use = "matt-dong-123/gruvbox-material"
+rev = "6c36491"
+hash = "564f2335540ee2c440c3b671bc28ac60"
+
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "5f9200c"
+hash = "d33fbfce4e5dbc044e289d34fdede65d"
