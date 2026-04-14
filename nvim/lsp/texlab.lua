@@ -153,6 +153,9 @@ return {
                 onEdit = false,
             },
             diagnosticsDelay = 300,
+            diagnostics = {
+                ignoredPatterns = { "Unused" },
+            },
             latexFormatter = "latexindent",
             latexindent = {
                 ["local"] = nil, -- local is a reserved keyword
