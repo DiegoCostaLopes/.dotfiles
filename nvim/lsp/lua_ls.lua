@@ -27,6 +27,7 @@ return {
                 checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME,
+                    "/usr/share/hypr/stubs",
                     -- Depending on the usage, you might want to add additional paths
                     -- here.
                     -- '${3rd}/luv/library',
@@ -64,6 +65,7 @@ return {
             workspace = {
                 library = {
                     vim.env.VIMRUNTIME,
+                    "/usr/share/hypr/stubs",
                     -- optionally add other plugins' lua directories if needed for type definitions
                 },
             },

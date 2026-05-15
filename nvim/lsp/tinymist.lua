@@ -66,6 +66,7 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, "Lsp" .. cmd_name, cmd_func, { nargs = 0, desc = cmd_desc })
             vim.keymap.set("n", "<leader>dc", "<cmd>LspTinymistExportPdf<CR>", { desc = "Compiles the current buffer" })
         end
+        vim.opt_local.textwidth = 120
     end,
     settings = {
         formatterMode = "typstyle",
