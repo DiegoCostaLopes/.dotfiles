@@ -154,7 +154,8 @@ return {
             },
             diagnosticsDelay = 300,
             diagnostics = {
-                ignoredPatterns = { "Unused" },
+                allowedPatterns = { "$^" },
+                -- ignoredPatterns = { "Unused" },
             },
             latexFormatter = "latexindent",
             latexindent = {

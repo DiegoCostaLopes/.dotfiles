@@ -71,7 +71,9 @@ return {
         formatterMode = "typstyle",
         exportPdf = "onSave",
         completion = {
-            triggerOnSnippetPlaceholders = true,
+            -- triggerOnSnippetPlaceholders = true,
+            symbol = "stepless",
+            postfix = false,
         },
     },
 }
