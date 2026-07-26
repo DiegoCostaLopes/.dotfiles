@@ -103,3 +103,4 @@ hl.config({
 require("hyprland-binds")
 require("hyprland-windowrules")
 require("hyprland-animations")
+require("hyprland-colors")

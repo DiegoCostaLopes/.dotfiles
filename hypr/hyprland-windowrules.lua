@@ -58,3 +58,12 @@ hl.window_rule({
     },
     float = true,
 })
+
+hl.window_rule({
+    name = "steam-games",
+    match = {
+        class = "^steam_app_.*",
+    },
+    fullscreen = true,
+    workspace = "5",
+})

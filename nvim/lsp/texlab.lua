@@ -187,6 +187,6 @@ return {
         end
 
         vim.keymap.set("n", "<leader>lc", "<cmd>LspTexlabBuild<CR>", { desc = "Builds the current buffer" })
-        vim.opt_local.textwidth = 120
+        -- vim.opt_local.textwidth = 120
     end,
 }
